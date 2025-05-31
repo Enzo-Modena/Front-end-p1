@@ -1,17 +1,12 @@
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito, Nunito } from "next/font/google";
 import { Poppins } from "next/font/google";
 
 import "../css-app/reset.css"
 import "../css-app/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const Nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -21,8 +16,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Teste",
-  description: "Uso de React e Next JS",
+  title: "After Life",
+  description: "Be always happy",
 };
 
 // Aqui serve para colocar o menu (por exemplo a navgar) e o rodapé, para não ter que ficar colocando em todas as páginas
