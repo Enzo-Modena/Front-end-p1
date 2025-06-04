@@ -1,48 +1,367 @@
+/* Variáveis para cores e espaçamento */
+:root {
+  --primary-color: #3f51b5; /* Azul parecido com o da imagem */
+  --secondary-color: #f44336; /* Vermelho para botões/destaques */
+  --text-color: #333;
+  --light-text-color: #666;
+  --white: #fff;
+  --light-grey: #f5f5f5;
+  --border-color: #ddd;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--light-grey);
+}
+
+/* Container genérico para centralizar conteúdo */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-md) 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Alinhar com o container principal */
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.logo {
+  height: 40px; /* Ajuste conforme a imagem real do logo */
+  width: auto;
+}
+
+.navbarNav {
+  display: flex;
+  gap: var(--spacing-xl); /* Espaçamento maior entre os links da navegação */
+}
+
+.navLink {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--spacing-sm) 0; /* Padding vertical para a linha de baixo */
+  position: relative; /* Para a linha de destaque */
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navLink.active {
+  color: var(--white);
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Posição da linha abaixo do texto */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.icon {
+  font-size: 24px; /* Tamanho dos ícones */
+  cursor: pointer;
+  color: var(--white);
+}
+
+/* Ícones de carrinho e usuário (usando placeholder para visualização, idealmente SVG ou fonte de ícones) */
+.cartIcon::before {
+  content: '🛒'; /* Unicode para carrinho */
+}
+
+.userIcon::before {
+  content: '👤'; /* Unicode para usuário */
+}
+
+.btnIngressos {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btnIngressos:hover {
+  background-color: #d32f2f; /* Tom mais escuro do vermelho */
+}
+
+/* Seção de Filtros */
+.filterSection {
+  background-color: var(--white);
+  padding: var(--spacing-md) 0;
+  margin-top: var(--spacing-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Borda arredondada */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%; /* Ajuste para centralizar e dar espaço nas laterais */
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+  gap: var(--spacing-md); /* Espaçamento entre os grupos de input */
+}
+
+.filterInputGroup {
+  display: flex;
+  flex-direction: column; /* Coloca o label acima do input */
+  position: relative; /* Para posicionar o label no topo */
+  padding-top: var(--spacing-md); /* Espaço para o label flutuante */
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.filterLabel {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: 0;
+  font-size: 12px;
+  color: var(--light-text-color);
+  pointer-events: none; /* Garante que o label não interfira com o input */
+  transition: all 0.2s ease-out;
+}
+
+.filterInput {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: var(--spacing-sm);
+  font-size: 16px;
+  width: 150px; /* Largura fixa para os inputs */
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Esconder o placeholder original do input type="date" */
+.filterInput[type="date"]::-webkit-datetime-edit-text {
+  -webkit-appearance: none;
+  display: none;
+}
+.filterInput[type="date"]::-webkit-datetime-edit-month-field,
+.filterInput[type="date"]::-webkit-datetime-edit-day-field,
+.filterInput[type="date"]::-webkit-datetime-edit-year-field {
+  -webkit-appearance: none;
+  padding: 0;
+}
+.filterInput[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+.filterInput[type="date"]::-webkit-calendar-picker-indicator {
+  color: var(--primary-color);
+  opacity: 1; /* Torna o ícone do calendário visível */
+  cursor: pointer;
+}
+
+
+.btnSearch {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: background-color 0.3s ease;
+  height: 42px; /* Ajustar altura para alinhar com os inputs */
+}
+
+.btnSearch:hover {
+  background-color: #303f9f; /* Tom mais escuro do azul */
+}
+
+.searchIcon {
+  font-size: 18px;
+}
+
+/* Conteúdo Principal (Hospedagens) */
+.mainContent {
+  padding: var(--spacing-xl) 0;
+  max-width: 1200px;
+  margin: var(--spacing-xl) auto 0 auto; /* Centraliza e adiciona margem superior */
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas responsivas */
+  gap: var(--spacing-xl); /* Espaçamento entre os cards */
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Garante que a imagem não vaze */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px; /* Altura fixa para as imagens dos cards */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+.cardTitle {
+  font-size: 20px;
+  color: var(--text-color);
+  margin: var(--spacing-md) var(--spacing-md) var(--spacing-sm);
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: var(--light-text-color);
+  line-height: 1.5;
+  flex-grow: 1; /* Faz com que a descrição ocupe o espaço restante */
+  margin: 0 var(--spacing-md) var(--spacing-md);
+  padding-bottom: var(--spacing-md); /* Espaçamento antes do preço */
+  border-bottom: 1px solid var(--border-color); /* Linha divisória */
+}
+
+.cardPrice {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: var(--spacing-md);
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.cardInstallments {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--light-text-color);
+}
+
+.btnReservar {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md);
+  width: calc(100% - (2 * var(--spacing-md))); /* Ocupa a largura do card menos o padding */
+  margin: 0 var(--spacing-md) var(--spacing-md);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btnReservar:hover {
+  background-color: #303f9f;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--text-color);
+  color: var(--white);
+  padding: var(--spacing-md) 0;
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.footerContainer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+    gap: var(--spacing-md);
   }
-  
-  .logo {
-    height: 60px;
+
+  .navbarNav {
+    gap: var(--spacing-md);
   }
-  
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+
+  .filterContainer {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  .btnIngressos {
-    background-color: #ff6600;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
+
+  .filterInput {
+    width: 100%; /* Ocupa a largura total em telas menores */
   }
-  
-  .filtros input,
-  .filtros button {
-    margin-right: 0.5rem;
+
+  .btnSearch {
+    width: 100%;
+    justify-content: center;
   }
-  
-  .hospedagens {
-    margin-top: 2rem;
-    display: flex;
+
+  .cardsGrid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
   }
-  
-  .card {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    margin: 2rem;
+
+  .footerContainer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
-  
-  .preco {
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
+}
