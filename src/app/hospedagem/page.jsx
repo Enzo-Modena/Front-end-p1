@@ -1,8 +1,44 @@
+'use client'; // Mantenha esta diretiva no topo
+
+import React, { useState } from 'react';
 import styles from './page.module.css';
-import Image from 'next/image'; // Importar Image de Next.js para otimização, se aplicável
+// import Image from 'next/image';
 
 export default function Hospedagem() {
-  // Dados simulados para as pousadas (poderia vir de uma API ou de um arquivo de dados)
+  // Estados para os inputs de data (se estiver usando eles)
+  const [checkinDate, setCheckinDate] = useState('');
+  const [checkoutDate, setCheckoutDate] = useState('');
+
+  // Estados para controlar a visibilidade dos modais
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false); // NOVO ESTADO
+
+  // Funções para o Modal do Carrinho
+  const openCartModal = () => {
+    setIsCartModalOpen(true);
+  };
+
+  const closeCartModal = () => {
+    setIsCartModalOpen(false);
+  };
+
+  // Funções para o Modal de Sucesso
+  const openSuccessModal = () => {
+    setIsSuccessModalOpen(true);
+  };
+
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+  };
+
+  // NOVO: Função para lidar com a finalização da compra
+  const handleFinalizarCompra = () => {
+    closeCartModal(); // Fecha o modal do carrinho
+    openSuccessModal(); // Abre o modal de sucesso
+  };
+
+
+  // Dados simulados para as pousadas (mantidos como estão)
   const pousadas = [
     {
       name: "Pousada Recanto do Lar",
@@ -23,21 +59,21 @@ export default function Hospedagem() {
       description: "A Pousada Canto do Descanso destaca-se por sua privilegiada localização, incrustada no costão roberto de frente para o mar, na Praia Grande, a 3 km do Parque After Life.",
       price: "420,00",
       installments: "5x de R$ 84,00",
-      image: "/hospedagem/pousada5.jpg"
+      image: "/hospedagem/pousada1.jpg"
     },
     {
       name: "Pousada da Natureza",
       description: "A Pousada da Natureza destaca-se juntamente por estar em volta de toda a natureza. Proporciona ar puro e alegria aconchegam todos os hóspedes.",
       price: "420,00",
       installments: "5x de R$ 84,00",
-      image: "/hospedagem/pousada4.jpg"
+      image: "/hospedagem/pousada5.jpg"
     },
     {
       name: "Pousada das Famílias",
       description: "A Pousada Vale do Céu destaca-se por sua privilegiada localização, incrustada no costão roberto de frente para o mar, na Praia Grande, a 3 km do Parque After Life.",
       price: "420,00",
       installments: "5x de R$ 84,00",
-      image: "/hospedagem/pousada5.jpg"
+      image: "/hospedagem/pousada4.jpg"
     },
     {
       name: "Hotel das Águas",
@@ -52,22 +88,21 @@ export default function Hospedagem() {
     <div>
       <header className={styles.header}>
         <div className={styles.headerContainer}>
-          {/* Se estiver usando Next.js, é melhor usar o componente Image */}
           <img src="/logo.png" alt="Logo After Life" className={styles.logo} />
-          {/* <Image src="/logo.png" alt="Logo After Life" width={150} height={40} className={styles.logo} /> */}
           <nav className={styles.navbarNav}>
             <a href="#" className={styles.navLink}>Home</a>
             <a href="#" className={styles.navLink}>Sobre</a>
             <a href="#" className={`${styles.navLink} ${styles.active}`}>Hospedagem</a>
           </nav>
           <div className={styles.headerIcons}>
-            <i className={`${styles.icon} ${styles.cartIcon}`}></i> {/* Ícone de carrinho, pode ser um SVG ou outra fonte de ícone */}
-            <i className={`${styles.icon} ${styles.userIcon}`}></i> {/* Ícone de usuário */}
+            <i className={`${styles.icon} ${styles.cartIcon}`} onClick={openCartModal}></i>
+            <i className={`${styles.icon} ${styles.userIcon}`}></i>
             <button className={styles.btnIngressos}>Ingressos</button>
           </div>
         </div>
       </header>
 
+      {/* Seção de Filtros (mantida) */}
       <section className={styles.filterSection}>
         <div className={styles.filterContainer}>
           <div className={styles.filterInputGroup}>
@@ -91,18 +126,17 @@ export default function Hospedagem() {
             <input type="number" id="people" placeholder="" className={styles.filterInput} />
           </div>
           <button className={styles.btnSearch}>
-            <span className={styles.searchIcon}>🔍</span> Pesquisar
+            <span className={styles.searchIcon}></span> Pesquisar
           </button>
         </div>
       </section>
 
+      {/* Conteúdo Principal (Hospedagens) (mantido) */}
       <main className={styles.mainContent}>
         <div className={styles.cardsGrid}>
           {pousadas.map((pousada, index) => (
             <div className={styles.card} key={index}>
-              {/* Usar Image de Next.js para otimização */}
               <img src={pousada.image} alt={pousada.name} className={styles.cardImage} />
-              {/* <Image src={pousada.image} alt={pousada.name} layout="responsive" width={300} height={200} className={styles.cardImage} /> */}
               <h3 className={styles.cardTitle}>{pousada.name}</h3>
               <p className={styles.cardDescription}>{pousada.description}</p>
               <div className={styles.cardPrice}>
@@ -114,12 +148,56 @@ export default function Hospedagem() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerContainer}>
+      <footer>
+        <div className={styles.footer}>
           <p>After Life Parque @ 2025 – Todos os direitos reservados</p>
           <p>Be always happy :)</p>
         </div>
       </footer>
+
+      {/* Modal do Carrinho */}
+      {isCartModalOpen && (
+        <div className={styles.cartModalOverlay} onClick={closeCartModal}>
+          <div className={styles.cartModalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.cartModalHeader}>
+              <h2>CARRINHO</h2>
+              <button className={styles.closeModalBtn} onClick={closeCartModal}>&times;</button>
+            </div>
+            <div className={styles.cartModalBody}>
+              <div className={styles.cartItemSummary}>
+                <img src={pousadas[0].image} alt="1 Hospedagem" className={styles.cartItemSummaryImage} />
+                <div className={styles.cartItemSummaryDetails}>
+                  <p>1 Hospedagem</p>
+                  <p>1 Quarto 2 Adultos</p>
+                  <a href="#" className={styles.viewMoreInfo}>Ver mais informações</a>
+                </div>
+              </div>
+            </div>
+            <div className={styles.cartModalFooter}>
+              {/* VINCULANDO O BOTÃO "FINALIZAR" À NOVA FUNÇÃO */}
+              <button className={styles.btnFinalizar} onClick={handleFinalizarCompra}>Finalizar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* NOVO: Modal de Sucesso "Compra finalizada com sucesso!" */}
+      {isSuccessModalOpen && (
+        <div className={styles.cartModalOverlay} onClick={closeSuccessModal}> {/* Reutiliza o overlay */}
+          <div className={`${styles.cartModalContent} ${styles.successModalContent}`} onClick={(e) => e.stopPropagation()}>
+            {/* O modal de sucesso não tem cabeçalho visível ou botão "X" na imagem, mas podemos adicionar um se necessário */}
+            {/* <div className={styles.cartModalHeader}>
+              <button className={styles.closeModalBtn} onClick={closeSuccessModal}>&times;</button>
+            </div> */}
+            <div className={styles.successModalBody}>
+              <div className={styles.successIcon}> {/* Ícone de check */}
+                <img src="/hospedagem/sucesso.png" alt="Sucesso" className={styles.checkImage} /> {/* Supondo um ícone de check em public/images */}
+              </div>
+              <p className={styles.successMessage}>Compra finalizada com sucesso!</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

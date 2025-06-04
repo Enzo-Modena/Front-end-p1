@@ -1,7 +1,7 @@
 /* Variáveis para cores e espaçamento */
 :root {
-  --primary-color: #3f51b5; /* Azul parecido com o da imagem */
-  --secondary-color: #f44336; /* Vermelho para botões/destaques */
+  --primary-color: #2D336B; /* Azul parecido com o da imagem */
+  --secondary-color: #7886C7; /* Vermelho para botões/destaques */
   --text-color: #333;
   --light-text-color: #666;
   --white: #fff;
@@ -11,6 +11,7 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+  --border-radius: 8px;
 }
 
 body {
@@ -32,24 +33,28 @@ body {
 .header {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) 0; /* Padding vertical para o header */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Alinhar com o container principal */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+  /* Defina uma altura explícita para o headerContainer */
+  height: 40px; /* OU um valor maior, por exemplo, 70px ou 80px, que você considere adequado para a navbar */
 }
 
 .logo {
-  height: 40px; /* Ajuste conforme a imagem real do logo */
-  width: auto;
+  width: auto; /* Mantém a proporção da imagem */
+  margin: 0;
+  height: 100%; /* Faz a logo preencher 100% da altura do .headerContainer */
+  object-fit: contain; /* Garante que a imagem não seja cortada e mantenha sua proporção */
 }
-
 .navbarNav {
   display: flex;
   gap: var(--spacing-xl); /* Espaçamento maior entre os links da navegação */
@@ -97,15 +102,33 @@ body {
 
 /* Ícones de carrinho e usuário (usando placeholder para visualização, idealmente SVG ou fonte de ícones) */
 .cartIcon::before {
-  content: '🛒'; /* Unicode para carrinho */
+  content: ''; /* Essencial para pseudo-elementos mostrarem conteúdo */
+  background-image: url("/hospedagem/shop.png"); /* Caminho correto para a imagem */
+  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem no elemento */
+  
+  /* Defina um tamanho para o ícone */
+  width: 24px; /* Largura do ícone, ajuste conforme necessário */
+  height: 24px; /* Altura do ícone, ajuste conforme necessário */
+  display: inline-block;
 }
-
 .userIcon::before {
-  content: '👤'; /* Unicode para usuário */
+  content: ''; /* Essencial para pseudo-elementos mostrarem conteúdo */
+  background-image: url("/hospedagem/person.png"); /* Caminho correto para a imagem */
+  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem no elemento */
+  
+  /* Defina um tamanho para o ícone */
+  width: 26px; /* Largura do ícone, ajuste conforme necessário */
+  height: 26px; /* Altura do ícone, ajuste conforme necessário */
+  display: inline-block;
 }
 
 .btnIngressos {
   background-color: var(--secondary-color);
+  font-size: 16px;
   color: var(--white);
   border: none;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -116,7 +139,7 @@ body {
 }
 
 .btnIngressos:hover {
-  background-color: #d32f2f; /* Tom mais escuro do vermelho */
+  background-color: #303f9f;
 }
 
 /* Seção de Filtros */
@@ -128,7 +151,7 @@ body {
   border-radius: 8px; /* Borda arredondada */
   margin-left: auto;
   margin-right: auto;
-  max-width: 90%; /* Ajuste para centralizar e dar espaço nas laterais */
+  max-width: 1200px; /* Ajuste para centralizar e dar espaço nas laterais */
 }
 
 .filterContainer {
@@ -159,7 +182,7 @@ body {
 
 .filterLabel {
   position: absolute;
-  top: var(--spacing-sm);
+  top: 1px;
   left: 0;
   font-size: 12px;
   color: var(--light-text-color);
@@ -222,7 +245,21 @@ body {
 }
 
 .searchIcon {
-  font-size: 18px;
+  /* Altere estas linhas para carregar a imagem corretamente */
+  /* Se este for um <span>, você pode definir as propriedades diretamente */
+  content: ''; /* Se o <span> não tiver outro conteúdo, use content vazio ou remova o emoji no HTML */
+  background-image: url("/hospedagem/search.png"); /* Caminho correto para a imagem */
+  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem no elemento */
+
+  /* Defina um tamanho para o ícone. Ajuste conforme o tamanho desejado. */
+  width: 18px; /* Era o font-size do emoji, bom para começar */
+  height: 18px; /* Deve ter a mesma altura para ser proporcional */
+  display: inline-block; /* Mantém-o alinhado com o texto "Pesquisar" */
+
+  /* Opcional: Remova o font-size se você não quer que o emoji seja renderizado */
+  font-size: 0; /* Isso "esconde" o emoji se ele ainda estiver no HTML */
 }
 
 /* Conteúdo Principal (Hospedagens) */
@@ -308,9 +345,10 @@ body {
   background-color: #303f9f;
 }
 
+
 /* Footer */
 .footer {
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
   color: var(--white);
   padding: var(--spacing-md) 0;
   text-align: center;
@@ -327,9 +365,11 @@ body {
 }
 
 .footerContainer p {
-  margin: 0;
+  margin-top: 0;
   font-size: 14px;
 }
+
+
 
 /* Responsividade Básica */
 @media (max-width: 768px) {
@@ -363,5 +403,264 @@ body {
   .footerContainer {
     flex-direction: column;
     gap: var(--spacing-sm);
+  }
+}
+
+
+
+.cartModalOverlay {
+  position: fixed; /* Essencial para o modal flutuar */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-overlay-bg); /* Fundo semi-transparente */
+  display: flex;
+  justify-content: center; /* Centraliza o modal horizontalmente */
+  align-items: center;     /* Centraliza o modal verticalmente */
+  z-index: 1000; /* Garante que o modal esteja acima de todo o conteúdo */
+  animation: fadeIn 0.3s ease-out; /* Animação de entrada suave */
+}
+
+.cartModalContent {
+  background-color: var(--primary-color); /* Fundo azul escuro do modal */
+  border-radius: var(--border-radius); /* Cantos arredondados */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+  width: 90%; /* Largura para telas menores */
+  max-width: 400px; /* Largura máxima, conforme o protótipo */
+  /* max-height: 80vh; */ /* Removi max-height para evitar scrollbar se o conteúdo for pequeno como na imagem */
+  /* overflow-y: auto; */ /* Removi overflow-y, mas pode ser reativado se o conteúdo for dinâmico e maior */
+  position: relative; /* Base para o botão de fechar se for absoluto */
+  transform: translateY(-20px); /* Começa um pouco acima para a animação de slide-down */
+  animation: slideIn 0.3s ease-out forwards; /* Animação de slide-down */
+  color: white; /* Cor do texto principal do modal */
+  padding: 0; /* Remove padding padrão do content para controlar nas subseções */
+}
+
+.cartModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg); /* Espaçamento interno (vertical, horizontal) */
+  border-bottom: 1px solid var(--modal-border-color); /* Borda sutil na parte inferior do cabeçalho */
+}
+
+.cartModalHeader h2 {
+  margin: 0; /* Remove margem padrão do h2 */
+  font-size: 20px; /* Tamanho do título "CARRINHO" */
+  font-weight: bold;
+  text-transform: uppercase; /* Para ficar em maiúsculas como na imagem */
+  color: white;
+}
+
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 24px; /* Tamanho do "X" */
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0; /* Remove padding extra do botão para alinhar o "X" */
+}
+
+.closeModalBtn:hover {
+  color: rgba(255, 255, 255, 0.7); /* Efeito hover no "X" */
+}
+
+.cartModalBody {
+  padding: var(--spacing-lg); /* Espaçamento interno maior para o corpo */
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo principal horizontalmente */
+  align-items: center;     /* Centraliza o conteúdo principal verticalmente */
+  flex-direction: column; /* Para empilhar a imagem e o texto */
+}
+
+.cartItemSummary {
+  display: flex;
+  flex-direction: column; /* Itens (imagem, texto) empilhados */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  gap: var(--spacing-md); /* Espaçamento entre imagem e texto */
+  text-align: center;
+  width: 100%; /* Ocupa a largura do corpo do modal */
+}
+
+.cartItemSummaryImage {
+  width: 150px; /* Tamanho da imagem no protótipo */
+  height: 100px;
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  border-radius: var(--border-radius); /* Cantos arredondados para a imagem */
+}
+
+.cartItemSummaryDetails p {
+  margin: var(--spacing-xs) 0; /* Espaçamento sutil entre as linhas de texto */
+  font-size: 16px;
+  color: var(--modal-text-color);
+  line-height: 1.4; /* Ajuste para melhor legibilidade */
+}
+
+.viewMoreInfo {
+  color: var(--modal-text-color); /* Cor do link "Ver mais informações" */
+  text-decoration: underline; /* Sublinhado */
+  font-size: 14px;
+  margin-top: var(--spacing-sm); /* Espaçamento acima do link */
+  display: block; /* Para ocupar sua própria linha */
+}
+
+.viewMoreInfo:hover {
+  opacity: 0.8; /* Efeito hover no link */
+}
+
+.cartModalFooter {
+  display: flex;
+  justify-content: center; /* Centraliza o botão */
+  padding: var(--spacing-md) var(--spacing-lg); /* Espaçamento interno do rodapé */
+  border-top: 1px solid var(--modal-border-color); /* Borda sutil na parte superior do rodapé */
+}
+
+.btnFinalizar {
+  background-color: var(--secondary-color); /* O azul principal para o botão */
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-xl); /* Mais padding para o botão parecer robusto */
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  min-width: 180px; /* Largura mínima para o botão, como na imagem */
+  text-transform: uppercase; /* Para ficar em maiúsculas como na imagem */
+}
+
+.btnFinalizar:hover {
+  background-color: #303f9f; /* Tom mais escuro do azul no hover */
+}
+
+/* Animações do Modal (mantidas) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade do Modal (adaptada para o novo design) */
+@media (max-width: 480px) {
+  .cartModalContent {
+    width: 95%; /* Ocupa mais largura em celulares */
+    max-width: unset; /* Remove max-width para telas muito pequenas */
+  }
+  .cartModalHeader h2 {
+    font-size: 18px;
+  }
+  .closeModalBtn {
+    font-size: 20px;
+  }
+  .cartModalBody {
+    padding: var(--spacing-md); /* Menos padding em telas menores */
+  }
+  .cartItemSummaryImage {
+    width: 100px; /* Imagem um pouco menor em celulares */
+    height: 70px;
+  }
+  .cartItemSummaryDetails p {
+    font-size: 14px;
+  }
+  .btnFinalizar {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 16px;
+    width: 100%; /* Ocupa a largura total em telas pequenas */
+    min-width: unset; /* Remove largura mínima */
+  }
+}
+
+/* NOVO: Estilos do Modal de Sucesso "Compra finalizada com sucesso!" */
+
+.successModalContent {
+  /* Ajustes específicos para o modal de sucesso, se necessário.
+     Ele herda a maioria das propriedades de .cartModalContent,
+     como background-color e border-radius.
+     A imagem mostra um modal menor, talvez ajuste o max-width aqui. */
+  max-width: 350px; /* Um pouco mais estreito que o modal do carrinho */
+  padding: var(--spacing-lg) var(--spacing-xl); /* Mais padding interno para centralizar o conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza verticalmente e horizontalmente */
+  justify-content: center;
+  text-align: center;
+  min-height: 200px; /* Garante uma altura mínima para o modal de sucesso */
+}
+
+/* Não há header ou footer visíveis no modal de sucesso da imagem, apenas o corpo */
+/* Mas se for adicionar um "X" de fechar, ele precisaria de um header. */
+/* .successModalContent .closeModalBtn { ... } */
+
+.successModalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md); /* Espaçamento entre o ícone e o texto */
+  width: 100%;
+}
+
+.successIcon {
+  width: 80px; /* Tamanho do círculo com o check */
+  height: 80px;
+  background-color: var(--primary-color); /* Cor do círculo (azul) */
+  border-radius: 50%; /* Faz um círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.checkImage {
+  width: 60%; /* Tamanho da imagem do check dentro do círculo */
+  height: 60%;
+  object-fit: contain; /* Garante que o ícone se ajuste */
+  /* A imagem do check é branca na foto, então garanta que seu PNG/SVG seja branco ou use um filtro */
+  /* filter: brightness(0) invert(1); /* Descomente para transformar um ícone preto em branco */
+}
+
+.successMessage {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--modal-text-color); /* Texto branco */
+  margin: 0; /* Remove margem padrão */
+  line-height: 1.3;
+}
+
+/* Animações (mantidas) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade (inclui ajustes para o novo modal) */
+@media (max-width: 480px) {
+  /* Mantém os ajustes para o modal do carrinho */
+  .cartModalContent {
+    width: 95%;
+  }
+  /* ... */
+
+  /* Ajustes para o modal de sucesso em telas pequenas */
+  .successModalContent {
+    max-width: 90%;
+    padding: var(--spacing-md);
+  }
+  .successIcon {
+    width: 60px;
+    height: 60px;
+  }
+  .successMessage {
+    font-size: 18px;
   }
 }
