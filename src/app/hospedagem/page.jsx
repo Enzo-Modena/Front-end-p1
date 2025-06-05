@@ -88,7 +88,7 @@ export default function Hospedagem() {
     <div>
       <header className={styles.header}>
         <div className={styles.headerContainer}>
-          <img src="/logo.png" alt="Logo After Life" className={styles.logo} />
+          <img src="/logo_afterlife.png" alt="Logo After Life" className={styles.logo} />
           <nav className={styles.navbarNav}>
             <a href="#" className={styles.navLink}>Home</a>
             <a href="#" className={styles.navLink}>Sobre</a>
