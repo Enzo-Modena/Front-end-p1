@@ -50,22 +50,22 @@ body {
 }
 
 .logo {
-  width: auto; /* Mantém a proporção da imagem */
+  width: auto; 
   margin: 0;
-  height: 100%; /* Faz a logo preencher 100% da altura do .headerContainer */
-  object-fit: contain; /* Garante que a imagem não seja cortada e mantenha sua proporção */
+  height: 100%; 
+  object-fit: contain; 
 }
 .navbarNav {
   display: flex;
-  gap: var(--spacing-xl); /* Espaçamento maior entre os links da navegação */
+  gap: var(--spacing-xl); 
 }
 
 .navLink {
   color: var(--white);
   text-decoration: none;
   font-weight: bold;
-  padding: var(--spacing-sm) 0; /* Padding vertical para a linha de baixo */
-  position: relative; /* Para a linha de destaque */
+  padding: var(--spacing-sm) 0; 
+  position: relative; 
   transition: color 0.3s ease;
 }
 
@@ -80,7 +80,7 @@ body {
 .navLink.active::after {
   content: '';
   position: absolute;
-  bottom: -5px; /* Posição da linha abaixo do texto */
+  bottom: -5px; 
   left: 0;
   width: 100%;
   height: 3px;
@@ -95,34 +95,34 @@ body {
 }
 
 .icon {
-  font-size: 24px; /* Tamanho dos ícones */
+  font-size: 24px; 
   cursor: pointer;
   color: var(--white);
 }
 
-/* Ícones de carrinho e usuário (usando placeholder para visualização, idealmente SVG ou fonte de ícones) */
+
 .cartIcon::before {
-  content: ''; /* Essencial para pseudo-elementos mostrarem conteúdo */
-  background-image: url("/hospedagem/shop.png"); /* Caminho correto para a imagem */
-  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  background-position: center; /* Centraliza a imagem no elemento */
+  content: ''; 
+  background-image: url("/hospedagem/shop.png"); 
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: center; 
   
-  /* Defina um tamanho para o ícone */
-  width: 24px; /* Largura do ícone, ajuste conforme necessário */
-  height: 24px; /* Altura do ícone, ajuste conforme necessário */
+
+  width: 24px;
+  height: 24px; 
   display: inline-block;
 }
 .userIcon::before {
-  content: ''; /* Essencial para pseudo-elementos mostrarem conteúdo */
-  background-image: url("/hospedagem/person.png"); /* Caminho correto para a imagem */
-  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  background-position: center; /* Centraliza a imagem no elemento */
+  content: ''; 
+  background-image: url("/hospedagem/person.png"); 
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center; 
   
-  /* Defina um tamanho para o ícone */
-  width: 26px; /* Largura do ícone, ajuste conforme necessário */
-  height: 26px; /* Altura do ícone, ajuste conforme necessário */
+
+  width: 26px; 
+  height: 26px; 
   display: inline-block;
 }
 
@@ -148,25 +148,25 @@ body {
   padding: var(--spacing-md) 0;
   margin-top: var(--spacing-md);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px; /* Borda arredondada */
+  border-radius: 8px; 
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px; /* Ajuste para centralizar e dar espaço nas laterais */
+  max-width: 1200px; 
 }
 
 .filterContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
-  gap: var(--spacing-md); /* Espaçamento entre os grupos de input */
+  flex-wrap: wrap;
+  gap: var(--spacing-md); 
 }
 
 .filterInputGroup {
   display: flex;
-  flex-direction: column; /* Coloca o label acima do input */
-  position: relative; /* Para posicionar o label no topo */
-  padding-top: var(--spacing-md); /* Espaço para o label flutuante */
+  flex-direction: column; 
+  position: relative; 
+  padding-top: var(--spacing-md); 
 }
 
 .visuallyHidden {
@@ -186,7 +186,7 @@ body {
   left: 0;
   font-size: 12px;
   color: var(--light-text-color);
-  pointer-events: none; /* Garante que o label não interfira com o input */
+  pointer-events: none; 
   transition: all 0.2s ease-out;
 }
 
@@ -195,7 +195,7 @@ body {
   border-radius: 4px;
   padding: var(--spacing-sm);
   font-size: 16px;
-  width: 150px; /* Largura fixa para os inputs */
+  width: 150px; 
 }
 
 .filterInput:focus {
@@ -204,7 +204,7 @@ body {
   box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
 }
 
-/* Esconder o placeholder original do input type="date" */
+
 .filterInput[type="date"]::-webkit-datetime-edit-text {
   -webkit-appearance: none;
   display: none;
@@ -220,7 +220,7 @@ body {
 }
 .filterInput[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--primary-color);
-  opacity: 1; /* Torna o ícone do calendário visível */
+  opacity: 1; 
   cursor: pointer;
 }
 
@@ -237,49 +237,45 @@ body {
   align-items: center;
   gap: var(--spacing-sm);
   transition: background-color 0.3s ease;
-  height: 42px; /* Ajustar altura para alinhar com os inputs */
+  height: 42px; 
 }
 
 .btnSearch:hover {
-  background-color: #303f9f; /* Tom mais escuro do azul */
+  background-color: #303f9f; 
 }
 
 .searchIcon {
-  /* Altere estas linhas para carregar a imagem corretamente */
-  /* Se este for um <span>, você pode definir as propriedades diretamente */
-  content: ''; /* Se o <span> não tiver outro conteúdo, use content vazio ou remova o emoji no HTML */
-  background-image: url("/hospedagem/search.png"); /* Caminho correto para a imagem */
-  background-size: contain; /* Ajusta a imagem para caber dentro do elemento */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  background-position: center; /* Centraliza a imagem no elemento */
+  content: ''; 
+  background-image: url("/hospedagem/search.png"); 
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: center; 
 
-  /* Defina um tamanho para o ícone. Ajuste conforme o tamanho desejado. */
-  width: 18px; /* Era o font-size do emoji, bom para começar */
-  height: 18px; /* Deve ter a mesma altura para ser proporcional */
-  display: inline-block; /* Mantém-o alinhado com o texto "Pesquisar" */
+  width: 18px; 
+  height: 18px; 
+  display: inline-block;
 
-  /* Opcional: Remova o font-size se você não quer que o emoji seja renderizado */
-  font-size: 0; /* Isso "esconde" o emoji se ele ainda estiver no HTML */
+  font-size: 0;
 }
 
 /* Conteúdo Principal (Hospedagens) */
 .mainContent {
   padding: var(--spacing-xl) 0;
   max-width: 1200px;
-  margin: var(--spacing-xl) auto 0 auto; /* Centraliza e adiciona margem superior */
+  margin: var(--spacing-xl) auto 0 auto; 
 }
 
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas responsivas */
-  gap: var(--spacing-xl); /* Espaçamento entre os cards */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: var(--spacing-xl); 
 }
 
 .card {
   background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Garante que a imagem não vaze */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
@@ -291,8 +287,8 @@ body {
 
 .cardImage {
   width: 100%;
-  height: 200px; /* Altura fixa para as imagens dos cards */
-  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  height: 200px; 
+  object-fit: cover; 
 }
 
 .cardTitle {
@@ -305,10 +301,10 @@ body {
   font-size: 14px;
   color: var(--light-text-color);
   line-height: 1.5;
-  flex-grow: 1; /* Faz com que a descrição ocupe o espaço restante */
+  flex-grow: 1; 
   margin: 0 var(--spacing-md) var(--spacing-md);
-  padding-bottom: var(--spacing-md); /* Espaçamento antes do preço */
-  border-bottom: 1px solid var(--border-color); /* Linha divisória */
+  padding-bottom: var(--spacing-md); 
+  border-bottom: 1px solid var(--border-color); 
 }
 
 .cardPrice {
@@ -332,7 +328,7 @@ body {
   color: var(--white);
   border: none;
   padding: var(--spacing-md);
-  width: calc(100% - (2 * var(--spacing-md))); /* Ocupa a largura do card menos o padding */
+  width: calc(100% - (2 * var(--spacing-md))); 
   margin: 0 var(--spacing-md) var(--spacing-md);
   border-radius: 4px;
   cursor: pointer;
@@ -369,9 +365,6 @@ body {
   font-size: 14px;
 }
 
-
-
-/* Responsividade Básica */
 @media (max-width: 768px) {
   .headerContainer {
     flex-direction: column;
@@ -388,7 +381,7 @@ body {
   }
 
   .filterInput {
-    width: 100%; /* Ocupa a largura total em telas menores */
+    width: 100%; 
   }
 
   .btnSearch {
@@ -397,7 +390,7 @@ body {
   }
 
   .cardsGrid {
-    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    grid-template-columns: 1fr; 
   }
 
   .footerContainer {
@@ -409,133 +402,130 @@ body {
 
 
 .cartModalOverlay {
-  position: fixed; /* Essencial para o modal flutuar */
+  position: fixed; 
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--modal-overlay-bg); /* Fundo semi-transparente */
+  background-color: var(--modal-overlay-bg); 
   display: flex;
-  justify-content: center; /* Centraliza o modal horizontalmente */
-  align-items: center;     /* Centraliza o modal verticalmente */
-  z-index: 1000; /* Garante que o modal esteja acima de todo o conteúdo */
-  animation: fadeIn 0.3s ease-out; /* Animação de entrada suave */
+  justify-content: center; 
+  align-items: center;    
+  z-index: 1000; 
+  animation: fadeIn 0.3s ease-out; 
 }
 
 .cartModalContent {
-  background-color: var(--primary-color); /* Fundo azul escuro do modal */
-  border-radius: var(--border-radius); /* Cantos arredondados */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-  width: 90%; /* Largura para telas menores */
-  max-width: 400px; /* Largura máxima, conforme o protótipo */
-  /* max-height: 80vh; */ /* Removi max-height para evitar scrollbar se o conteúdo for pequeno como na imagem */
-  /* overflow-y: auto; */ /* Removi overflow-y, mas pode ser reativado se o conteúdo for dinâmico e maior */
-  position: relative; /* Base para o botão de fechar se for absoluto */
-  transform: translateY(-20px); /* Começa um pouco acima para a animação de slide-down */
-  animation: slideIn 0.3s ease-out forwards; /* Animação de slide-down */
-  color: white; /* Cor do texto principal do modal */
-  padding: 0; /* Remove padding padrão do content para controlar nas subseções */
+  background-color: var(--primary-color); 
+  border-radius: var(--border-radius); 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+  width: 90%; 
+  max-width: 400px; 
+  position: relative; 
+  transform: translateY(-20px); 
+  animation: slideIn 0.3s ease-out forwards; 
+  color: white; 
+  padding: 0; 
 }
 
 .cartModalHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md) var(--spacing-lg); /* Espaçamento interno (vertical, horizontal) */
-  border-bottom: 1px solid var(--modal-border-color); /* Borda sutil na parte inferior do cabeçalho */
+  padding: var(--spacing-md) var(--spacing-lg); 
+  border-bottom: 1px solid var(--modal-border-color); 
 }
 
 .cartModalHeader h2 {
-  margin: 0; /* Remove margem padrão do h2 */
-  font-size: 20px; /* Tamanho do título "CARRINHO" */
+  margin: 0;
+  font-size: 20px; 
   font-weight: bold;
-  text-transform: uppercase; /* Para ficar em maiúsculas como na imagem */
+  text-transform: uppercase; 
   color: white;
 }
 
 .closeModalBtn {
   background: none;
   border: none;
-  font-size: 24px; /* Tamanho do "X" */
+  font-size: 24px; 
   color: white;
   cursor: pointer;
   transition: color 0.2s ease;
-  padding: 0; /* Remove padding extra do botão para alinhar o "X" */
+  padding: 0; 
 }
 
 .closeModalBtn:hover {
-  color: rgba(255, 255, 255, 0.7); /* Efeito hover no "X" */
+  color: rgba(255, 255, 255, 0.7); 
 }
 
 .cartModalBody {
-  padding: var(--spacing-lg); /* Espaçamento interno maior para o corpo */
+  padding: var(--spacing-lg);
   display: flex;
-  justify-content: center; /* Centraliza o conteúdo principal horizontalmente */
-  align-items: center;     /* Centraliza o conteúdo principal verticalmente */
-  flex-direction: column; /* Para empilhar a imagem e o texto */
+  justify-content: center; 
+  align-items: center;     
+  flex-direction: column; 
 }
 
 .cartItemSummary {
   display: flex;
-  flex-direction: column; /* Itens (imagem, texto) empilhados */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  gap: var(--spacing-md); /* Espaçamento entre imagem e texto */
+  flex-direction: column; 
+  align-items: center;
+  gap: var(--spacing-md); 
   text-align: center;
-  width: 100%; /* Ocupa a largura do corpo do modal */
+  width: 100%; 
 }
 
 .cartItemSummaryImage {
-  width: 150px; /* Tamanho da imagem no protótipo */
+  width: 150px; 
   height: 100px;
-  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
-  border-radius: var(--border-radius); /* Cantos arredondados para a imagem */
+  object-fit: cover; 
+  border-radius: var(--border-radius); 
 }
 
 .cartItemSummaryDetails p {
-  margin: var(--spacing-xs) 0; /* Espaçamento sutil entre as linhas de texto */
+  margin: var(--spacing-xs) 0; 
   font-size: 16px;
   color: var(--modal-text-color);
-  line-height: 1.4; /* Ajuste para melhor legibilidade */
+  line-height: 1.4;
 }
 
 .viewMoreInfo {
-  color: var(--modal-text-color); /* Cor do link "Ver mais informações" */
-  text-decoration: underline; /* Sublinhado */
+  color: var(--modal-text-color);
+  text-decoration: underline; 
   font-size: 14px;
-  margin-top: var(--spacing-sm); /* Espaçamento acima do link */
-  display: block; /* Para ocupar sua própria linha */
+  margin-top: var(--spacing-sm); 
+  display: block; 
 }
 
 .viewMoreInfo:hover {
-  opacity: 0.8; /* Efeito hover no link */
+  opacity: 0.8; 
 }
 
 .cartModalFooter {
   display: flex;
-  justify-content: center; /* Centraliza o botão */
-  padding: var(--spacing-md) var(--spacing-lg); /* Espaçamento interno do rodapé */
-  border-top: 1px solid var(--modal-border-color); /* Borda sutil na parte superior do rodapé */
+  justify-content: center; 
+  padding: var(--spacing-md) var(--spacing-lg); 
+  border-top: 1px solid var(--modal-border-color); 
 }
 
 .btnFinalizar {
-  background-color: var(--secondary-color); /* O azul principal para o botão */
+  background-color: var(--secondary-color); 
   color: var(--white);
   border: none;
-  padding: var(--spacing-sm) var(--spacing-xl); /* Mais padding para o botão parecer robusto */
+  padding: var(--spacing-sm) var(--spacing-xl); 
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
   transition: background-color 0.3s ease;
-  min-width: 180px; /* Largura mínima para o botão, como na imagem */
-  text-transform: uppercase; /* Para ficar em maiúsculas como na imagem */
+  min-width: 180px; 
+  text-transform: uppercase; 
 }
 
 .btnFinalizar:hover {
-  background-color: #303f9f; /* Tom mais escuro do azul no hover */
+  background-color: #303f9f;
 }
 
-/* Animações do Modal (mantidas) */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -546,11 +536,10 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* Responsividade do Modal (adaptada para o novo design) */
 @media (max-width: 480px) {
   .cartModalContent {
-    width: 95%; /* Ocupa mais largura em celulares */
-    max-width: unset; /* Remove max-width para telas muito pequenas */
+    width: 95%; 
+    max-width: unset;
   }
   .cartModalHeader h2 {
     font-size: 18px;
@@ -559,10 +548,10 @@ body {
     font-size: 20px;
   }
   .cartModalBody {
-    padding: var(--spacing-md); /* Menos padding em telas menores */
+    padding: var(--spacing-md); 
   }
   .cartItemSummaryImage {
-    width: 100px; /* Imagem um pouco menor em celulares */
+    width: 100px; 
     height: 70px;
   }
   .cartItemSummaryDetails p {
@@ -571,45 +560,36 @@ body {
   .btnFinalizar {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 16px;
-    width: 100%; /* Ocupa a largura total em telas pequenas */
-    min-width: unset; /* Remove largura mínima */
+    width: 100%; 
+    min-width: unset; 
   }
 }
 
-/* NOVO: Estilos do Modal de Sucesso "Compra finalizada com sucesso!" */
 
 .successModalContent {
-  /* Ajustes específicos para o modal de sucesso, se necessário.
-     Ele herda a maioria das propriedades de .cartModalContent,
-     como background-color e border-radius.
-     A imagem mostra um modal menor, talvez ajuste o max-width aqui. */
-  max-width: 350px; /* Um pouco mais estreito que o modal do carrinho */
-  padding: var(--spacing-lg) var(--spacing-xl); /* Mais padding interno para centralizar o conteúdo */
+  max-width: 350px; 
+  padding: var(--spacing-lg) var(--spacing-xl); 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza verticalmente e horizontalmente */
+  align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 200px; /* Garante uma altura mínima para o modal de sucesso */
+  min-height: 200px;
 }
-
-/* Não há header ou footer visíveis no modal de sucesso da imagem, apenas o corpo */
-/* Mas se for adicionar um "X" de fechar, ele precisaria de um header. */
-/* .successModalContent .closeModalBtn { ... } */
 
 .successModalBody {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-md); /* Espaçamento entre o ícone e o texto */
+  gap: var(--spacing-md);
   width: 100%;
 }
 
 .successIcon {
-  width: 80px; /* Tamanho do círculo com o check */
+  width: 80px; 
   height: 80px;
-  background-color: var(--primary-color); /* Cor do círculo (azul) */
-  border-radius: 50%; /* Faz um círculo */
+  background-color: var(--primary-color); 
+  border-radius: 50%; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -617,22 +597,19 @@ body {
 }
 
 .checkImage {
-  width: 60%; /* Tamanho da imagem do check dentro do círculo */
+  width: 60%; 
   height: 60%;
-  object-fit: contain; /* Garante que o ícone se ajuste */
-  /* A imagem do check é branca na foto, então garanta que seu PNG/SVG seja branco ou use um filtro */
-  /* filter: brightness(0) invert(1); /* Descomente para transformar um ícone preto em branco */
+  object-fit: contain;
 }
 
 .successMessage {
   font-size: 20px;
   font-weight: bold;
-  color: var(--modal-text-color); /* Texto branco */
-  margin: 0; /* Remove margem padrão */
+  color: var(--modal-text-color); 
+  margin: 0; 
   line-height: 1.3;
 }
 
-/* Animações (mantidas) */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -643,15 +620,12 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* Responsividade (inclui ajustes para o novo modal) */
+
 @media (max-width: 480px) {
-  /* Mantém os ajustes para o modal do carrinho */
   .cartModalContent {
     width: 95%;
   }
-  /* ... */
 
-  /* Ajustes para o modal de sucesso em telas pequenas */
   .successModalContent {
     max-width: 90%;
     padding: var(--spacing-md);

@@ -1,19 +1,16 @@
-'use client'; // Mantenha esta diretiva no topo
+'use client';
 
 import React, { useState } from 'react';
 import styles from './page.module.css';
-// import Image from 'next/image';
+
 
 export default function Hospedagem() {
-  // Estados para os inputs de data (se estiver usando eles)
   const [checkinDate, setCheckinDate] = useState('');
   const [checkoutDate, setCheckoutDate] = useState('');
 
-  // Estados para controlar a visibilidade dos modais
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false); // NOVO ESTADO
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false); 
 
-  // Funções para o Modal do Carrinho
   const openCartModal = () => {
     setIsCartModalOpen(true);
   };
@@ -22,7 +19,6 @@ export default function Hospedagem() {
     setIsCartModalOpen(false);
   };
 
-  // Funções para o Modal de Sucesso
   const openSuccessModal = () => {
     setIsSuccessModalOpen(true);
   };
@@ -31,14 +27,12 @@ export default function Hospedagem() {
     setIsSuccessModalOpen(false);
   };
 
-  // NOVO: Função para lidar com a finalização da compra
   const handleFinalizarCompra = () => {
-    closeCartModal(); // Fecha o modal do carrinho
-    openSuccessModal(); // Abre o modal de sucesso
+    closeCartModal(); 
+    openSuccessModal(); 
   };
 
 
-  // Dados simulados para as pousadas (mantidos como estão)
   const pousadas = [
     {
       name: "Pousada Recanto do Lar",
@@ -102,7 +96,7 @@ export default function Hospedagem() {
         </div>
       </header>
 
-      {/* Seção de Filtros (mantida) */}
+      {/* Seção de Filtros */}
       <section className={styles.filterSection}>
         <div className={styles.filterContainer}>
           <div className={styles.filterInputGroup}>
@@ -131,7 +125,7 @@ export default function Hospedagem() {
         </div>
       </section>
 
-      {/* Conteúdo Principal (Hospedagens) (mantido) */}
+      {/* Conteúdo Principal */}
       <main className={styles.mainContent}>
         <div className={styles.cardsGrid}>
           {pousadas.map((pousada, index) => (
@@ -174,24 +168,20 @@ export default function Hospedagem() {
               </div>
             </div>
             <div className={styles.cartModalFooter}>
-              {/* VINCULANDO O BOTÃO "FINALIZAR" À NOVA FUNÇÃO */}
               <button className={styles.btnFinalizar} onClick={handleFinalizarCompra}>Finalizar</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* NOVO: Modal de Sucesso "Compra finalizada com sucesso!" */}
+      {/* Modal de Sucesso "Compra finalizada com sucesso!" */}
       {isSuccessModalOpen && (
-        <div className={styles.cartModalOverlay} onClick={closeSuccessModal}> {/* Reutiliza o overlay */}
+        <div className={styles.cartModalOverlay} onClick={closeSuccessModal}> 
           <div className={`${styles.cartModalContent} ${styles.successModalContent}`} onClick={(e) => e.stopPropagation()}>
-            {/* O modal de sucesso não tem cabeçalho visível ou botão "X" na imagem, mas podemos adicionar um se necessário */}
-            {/* <div className={styles.cartModalHeader}>
-              <button className={styles.closeModalBtn} onClick={closeSuccessModal}>&times;</button>
-            </div> */}
+
             <div className={styles.successModalBody}>
-              <div className={styles.successIcon}> {/* Ícone de check */}
-                <img src="/hospedagem/sucesso.png" alt="Sucesso" className={styles.checkImage} /> {/* Supondo um ícone de check em public/images */}
+              <div className={styles.successIcon}> 
+                <img src="/hospedagem/sucesso.png" alt="Sucesso" className={styles.checkImage} /> 
               </div>
               <p className={styles.successMessage}>Compra finalizada com sucesso!</p>
             </div>
