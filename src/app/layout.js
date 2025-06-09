@@ -1,6 +1,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 
 import "../css-app/reset.css"
 import "../css-app/globals.css";
@@ -21,6 +22,11 @@ const poppins = Poppins({
    weight: ["400", "600", "700"], // Regular, SemiBold e Bold
 });
 
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"]
+})
+
 export const metadata = {
   title: "Teste",
   description: "Uso de React e Next JS",
@@ -30,7 +36,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${nunito.variable}`}>
         {children}
       </body>
     </html>
