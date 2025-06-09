@@ -8,7 +8,7 @@ export default function Sobre() {
             <h1 className={styles.titulo}>AfterLife</h1>
         </div>
         <Image 
-            src="/imagens/sobre-afterlife.jpg"
+            src="/sobre/sobre-afterlife.jpg"
             alt="Sobre AfterLife"
             width={560}  
             height={400}  
