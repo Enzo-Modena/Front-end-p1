@@ -1,36 +1,30 @@
-
-import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
-
-import "../css-app/reset.css"
+import "../css-app/reset.css";
 import "../css-app/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Cabecalho from "../components/cabecalho";
+import Rodape from "../components/rodape";
 
 const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-poppins',
 });
 
 export const metadata = {
-  title: "Teste",
-  description: "Uso de React e Next JS",
+  title: "After Life Parque - Sua aventura começa aqui!",
+  description: "Explore as atrações incríveis do After Life Parque e reserve sua diversão!",
 };
 
-// Aqui serve para colocar o menu (por exemplo a navgar) e o rodapé, para não ter que ficar colocando em todas as páginas
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${poppins.variable}`}>
+        <div className="layoutContainer">
+          <Cabecalho />
+          <main className="mainContent">{children}</main>
+          <Rodape />
+        </div>
       </body>
     </html>
   );

@@ -1,0 +1,32 @@
+.footer {
+  background-color: #2D336B; 
+  color: white; 
+  padding: 1rem 20px; 
+  text-align: center; 
+  font-size: 0.875rem; 
+  margin-top: auto;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 1rem; 
+}
+
+.footerContent p {
+  margin: 0; 
+  line-height: 1.5; 
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column; 
+    text-align: center; 
+    gap: 0.5rem; 
+  }
+}

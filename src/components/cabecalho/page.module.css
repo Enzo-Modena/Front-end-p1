@@ -1,0 +1,100 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2f3061;
+  padding: 0 20px;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  background-color: #f7ecd9;
+  padding: 10px;
+}
+
+.logo :global(img) {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.mainNav a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.mainNav a:hover {
+  opacity: 0.7;
+}
+
+.actionItems {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  background-color: #848ccf;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.loginBtn:hover {
+  opacity: 0.9;
+}
+
+.icon {
+  margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .mainNav {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .actionItems {
+    width: 100%;
+    justify-content: center;
+  }
+}
