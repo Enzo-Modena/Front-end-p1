@@ -1,9 +1,13 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 
 import "../css-app/reset.css"
 import "../css-app/globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapScript from '../components/BootstrapScript';
+import Cabecalho from "../components/cabecalho";
+import Rodape from "../components/rodape";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +22,13 @@ const geistMono = Geist_Mono({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "600", "700"], // Regular, SemiBold e Bold
 });
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"]
+})
 
 export const metadata = {
   title: "Teste",
@@ -29,8 +39,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${poppins.variable} ${nunito.variable}`}>
+        <BootstrapScript />
+        <div className="layoutContainer">
+          <Cabecalho />
+          <main className="mainContent">{children}</main>
+          <Rodape />
+        </div>
       </body>
     </html>
   );
