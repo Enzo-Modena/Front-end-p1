@@ -1,15 +1,19 @@
+
+body{
+    background-color: var(--color-background);
+}
 .container{
     display: flex;
     justify-content: center;
 }
-
 .containerGeral{
     display: flex;
     flex-direction: row;
     margin-top: 8rem;
     min-height: 490px;
 }
-/* Criar conta */
+/* PARA O LOGIN */
+/* Trecho para criar conta */
 .containerCriarConta{
     background-color: var(--color-primary-light);
     border-top-left-radius: 10px;
@@ -24,7 +28,7 @@
 }
 .containerTexto h1{
     font-size: 3.2rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 2.5rem;
 }
 .containerTexto p{
@@ -51,7 +55,7 @@
     padding: 5px;
 
 }
-/* Criar conta */
+/* Acessar conta */
 .containerAcessarConta{
     background-color: var(--color-secondary);
     border-top-right-radius: 10px;
@@ -79,6 +83,7 @@
     border-radius: 8px;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-background);
 }
 .campoPreencher ::placeholder{
     color: var(--color-primary);
@@ -215,5 +220,228 @@
   .containerBtnEntrar {
     margin-top: 8rem;
     margin-bottom: 4rem;
+  }
+}
+
+
+/* PARA CRIAR A CONTA */
+/* Trecho de acessar conta */
+.containerAcessarContaTrecho{
+    background-color: var(--color-secondary);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 2.5rem;
+    width: 353px;
+    box-shadow:  0 10px rgba(0, 0, 0, 0.25);
+    box-shadow:  0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.containerTextoTrecho{
+    margin-top: 8rem;
+}
+.containerTextoTrecho h1{
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: var(--color-background);
+}
+.containerTextoTrecho p{
+    font-family: var(--font-nunito);
+    font-size: 1.5rem;
+    color: var(--color-background);
+}
+.containerBtnEntrarTrecho{
+    margin: 7rem;
+}
+.containerBtnEntrarTrecho button{
+    border: 0.3rem solid #FFF8F8;
+    border-radius: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    /* texto do botão */
+    font-family: var(--font-nunito);
+    color: var(--color-background);
+    font-weight: 700;
+    font-size: 1.5rem;
+    width: 135px;
+    padding: 5px;
+}
+/* Criar Conta */
+.containerCriarContaPrincipal{
+    background-color: var(--color-primary-light);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 2.5rem;
+    width: 440px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25);
+}
+.containerTituloPrincipal{
+    margin-top: 4rem;
+}
+.containerTituloPrincipal h1{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-primary)
+}
+.campoPreencherPrincipal{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 70%;
+}
+.campoPreencherPrincipal input{
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-background);
+}
+.campoPreencherPrincipal ::placeholder{
+    color: var(--color-primary);
+    font-family: var(--font-nunito);
+}
+.formsPrincipal{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
+    align-items: center;
+}
+.containerBtnCadastrar{
+    margin-top: 8.3rem;
+}
+.containerBtnCadastrar button{
+    width: 12rem;
+    border-radius: 20px;
+    width: 16rem;
+    height: 3.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-family: var(--font-nunito);
+    font-weight: 600;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px #00000070;
+}
+/* Responsivo para Tablet */
+@media (max-width: 768px){
+    .containerGeral{
+        margin-bottom: 3rem;
+    }
+    .containerTituloPrincipal h1{
+        font-size: 2.5rem;
+    }
+    .containerTituloPrincipal p{
+        font-size: 1.3rem
+    }
+    .containerBtnCadastrar{
+        margin: 6.5rem;
+    }
+    .containerBtnCadastrar button{
+        width: 150px;
+        padding: 5px;
+    }
+    .containerTituloPrincipal h1{
+        font-size: 2.6rem;
+    }
+    .containerCriarContaPrincipal{
+        width: 350px;
+        padding: 1.5rem;
+    }
+}
+/* Responsivo para Mobile */
+@media (max-width: 599px) {
+  .containerGeral {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .containerTituloPrincipal {
+    margin-top: 2rem;
+  }
+
+  .containerAcessarContaTrecho {
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow:
+      -5px 0 10px rgba(0, 0, 0, 0.1),
+      5px 0 10px rgba(0, 0, 0, 0.1),
+      0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .containerCriarContaPrincipal {
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .containerTextoTrecho {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .containerTextoTrecho h1,
+  .containerTituloPrincipal h1 {
+    font-size: 2.2rem;
+  }
+
+  .containerTextoTrecho p {
+    font-size: 1.3rem;
+  }
+
+  .containerBtnCadastrar {
+    text-align: center;
+    margin: 6rem 3.5rem 2rem;
+  }
+
+  .containerBtnCadastrar button {
+    font-size: 1.4rem;
+    width: 14rem;
+  }
+
+  .containerBtnEntrarTrecho button {
+    font-size: 1.4rem;
+    width: 12rem;
+  }
+
+  .formsPrincipal {
+    margin-top: 5.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .campoPreencherPrincipal {
+    width: 95%;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .campoPreencherPrincipal input {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.2rem;
+  }
+
+  .containerBtnEntrarTrecho {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
   }
 }
