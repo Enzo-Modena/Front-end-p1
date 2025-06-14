@@ -1,0 +1,219 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.containerGeral{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8rem;
+    min-height: 490px;
+}
+/* Criar conta */
+.containerCriarConta{
+    background-color: var(--color-primary-light);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 2.5rem;
+    width: 353px;
+    box-shadow:  0 10px rgba(0, 0, 0, 0.25);
+    box-shadow:  0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.containerTexto{
+    margin-top: 8rem;
+}
+.containerTexto h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+.containerTexto p{
+    font-family: var(--font-nunito);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+.containerBtnCriarConta{
+    margin: 7rem;
+}
+.containerBtnCriarConta button{
+    border: 0.3rem solid #2d2f55;
+    /* padding: 7px 35px; */
+    border-radius: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    /* texto do botão */
+    font-family: var(--font-nunito);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    width: 135px;
+    padding: 5px;
+
+}
+/* Criar conta */
+.containerAcessarConta{
+    background-color: var(--color-secondary);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 2.5rem;
+    width: 440px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25);
+}
+.containerTitulo{
+    margin-top: 4rem;
+}
+.containerTitulo h1{
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: var(--color-background)
+}
+.campoPreencher{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 70%;
+}
+.campoPreencher input{
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.campoPreencher ::placeholder{
+    color: var(--color-primary);
+    font-family: var(--font-nunito);
+}
+.forms{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
+    align-items: center;
+}
+.containerBtnEntrar{
+    margin-top: 14rem;
+}
+.containerBtnEntrar button{
+    width: 12rem;
+    border-radius: 20px;
+    width: 16rem;
+    height: 3.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-family: var(--font-nunito);
+    font-weight: 600;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px #00000070;
+}
+
+/* Responsivo para Tablet */
+@media (max-width: 768px){
+    .containerGeral{
+        margin-bottom: 3rem;
+    }
+    .containerCriarConta{
+        width: 300px;
+    }
+    .containerTexto h1{
+        font-size: 2.5rem;
+    }
+    .containerTexto p{
+        font-size: 1.3rem
+    }
+    .containerBtnCriarConta{
+        margin: 6.5rem;
+    }
+    .containerBtnCriarConta button{
+        width: 130px;
+        padding: 5px;
+    }
+    .containerTitulo h1{
+        font-size: 2.6rem;
+    }
+    .containerAcessarConta{
+        width: 350px;
+        padding: 1.5rem;
+    }
+}
+
+/* Responsivo para Mobile */
+@media (max-width: 599px) {
+  .containerGeral {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .containerTitulo{
+    margin-top: 2rem;
+  }
+  .containerCriarConta{
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  .containerAcessarConta {
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow:  0 10px rgba(0, 0, 0, 0.25);
+    box-shadow:  0 10px rgba(0, 0, 0, 0.25);
+  }
+  .containerTexto {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .containerTexto h1,
+  .containerTitulo h1 {
+    font-size: 2.2rem;
+  }
+  .containerTexto p {
+    font-size: 1.3rem;
+  }
+  .containerBtnCriarConta {
+    text-align: center;
+    margin: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .containerBtnCriarConta button{
+    font-size: 1.4rem;
+    width: 12rem;
+  }
+  .containerBtnEntrar button {
+    font-size: 1.4rem;
+    width: 14rem;
+  }
+  .forms {
+    margin-top: 5.5rem;
+    align-items: center;
+  }
+  .campoPreencher {
+    width: 95%;
+    gap: 2rem;
+  }
+  .campoPreencher input {
+    padding: 0.9rem;
+    font-size: 1.2rem;
+  }
+  .containerBtnEntrar {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+  }
+}
