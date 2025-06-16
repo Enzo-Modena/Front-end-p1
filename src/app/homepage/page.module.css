@@ -1,0 +1,338 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  background-color: #fff7f7;
+}
+
+.heroImage {
+  position: relative;
+  width: 100vw;
+  height: 450px;
+  margin: 0;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.imagem {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.secao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.imagemSecao {
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.textoSecao {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.textoSecao ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.botao {
+  background-color: #00224D;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #003366;
+}
+
+.destaqueAzul {
+  background-color: #2f3061;
+  color: #fff;
+  border-radius: 20px;
+  padding: 1.2rem 3.5rem;
+  display: inline-block;
+  font-size: 2.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2.5rem auto 2rem auto;
+  box-shadow: 0 4px 16px rgba(47, 48, 97, 0.12);
+  letter-spacing: 0.5px;
+}
+
+.tituloCard {
+  background-color: #2f3061;
+  color: #fff;
+  border-radius: 20px;
+  padding: 1rem 0.5rem 0.7rem 0.5rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: 0 2px 8px rgba(47, 48, 97, 0.08);
+}
+
+.cardInfo {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(47,48,97,0.10);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 500px;
+  margin: 1rem 0;
+}
+
+.tituloSecao {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.iconeHotel {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url('/hotel-icon.svg') no-repeat center center / contain;
+}
+
+.botaoGrande {
+  background: #00224D;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  border: none;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.botaoGrande:hover {
+  background: #003366;
+}
+
+.secaoAzulClaro {
+  background: #b7c6ec;
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1.7rem 1.2rem;
+}
+
+.cardAzulEscuro {
+  background: #2f3061;
+  color: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  min-width: 340px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.35rem;
+  box-shadow: 0 8px 32px rgba(47,48,97,0.18);
+  position: relative;
+}
+
+.tituloSecaoGrande {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.subtituloSecao {
+  font-size: 1.35rem;
+  color: #a9b5df;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.listaPassos {
+  list-style: none;
+  margin: 1.2rem 0 2rem 0;
+  padding: 0;
+}
+
+.listaPassos li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.8rem;
+  position: relative;
+  font-size: 1.22rem;
+}
+
+.listaPassos li::before {
+  content: '✔️';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.25rem;
+}
+
+.fraseFinalSecao {
+  margin-top: 1.2rem;
+  font-size: 1.22rem;
+  color: #a9b5df;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.iconeSecao {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.botaoAzulClaro {
+  background: #a9b5df;
+  color: #fff;
+  font-size: 1.9rem;
+  padding: 1.6rem 4.5rem;
+  border-radius: 20px;
+  border: none;
+  margin: 2rem auto 0 auto;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.3s;
+  display: block;
+  box-shadow: 0 4px 16px rgba(47,48,97,0.13);
+  min-width: 270px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.botaoAzulClaro:hover {
+  background: #7d8fc7;
+  box-shadow: 0 8px 32px rgba(47,48,97,0.18);
+}
+
+.imagemSecaoAzul {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(47, 48, 97, 0.08);
+  padding: 0.5rem;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .secaoAzulClaro {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.2rem 0.5rem;
+    gap: 1.5rem;
+  }
+  .imagemSecaoAzul {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  .cardAzulEscuro {
+    min-width: 0;
+    max-width: 100%;
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+    font-size: 1.1rem;
+  }
+  .tituloSecaoGrande {
+    font-size: 1.7rem;
+  }
+  .subtituloSecao {
+    font-size: 1rem;
+  }
+  .listaPassos li {
+    font-size: 1rem;
+  }
+  .fraseFinalSecao {
+    font-size: 1rem;
+  }
+  .botaoAzulClaro {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .card {
+    padding: 0.7rem;
+  }
+  .tituloCard {
+    font-size: 1rem;
+    padding: 0.5rem 0.2rem;
+  }
+  .imagem {
+    max-width: 100%;
+    height: auto;
+  }
+}
