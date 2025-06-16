@@ -5,6 +5,7 @@ import { Nunito } from "next/font/google";
 import "../css-app/reset.css"
 import "../css-app/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-datepicker/dist/react-datepicker.css';
 import BootstrapScript from '../components/BootstrapScript';
 import Cabecalho from "../components/cabecalho";
 import Rodape from "../components/rodape";

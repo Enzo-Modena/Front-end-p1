@@ -66,7 +66,6 @@ body {
     min-height: 100vh;
 
     /* Adiciona um preenchimento ao redor do conteúdo do body usando uma variável CSS */
-    padding: var(--padding);
 
     /* Força a exibição da barra de rolagem vertical, evitando o deslocamento de elementos quando o conteúdo se torna longo o suficiente para precisar da barra */
     overflow-y: scroll;

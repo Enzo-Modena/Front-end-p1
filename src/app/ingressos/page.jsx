@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./page.module.css"
-
+import { Modal, Button } from "react-bootstrap";
+import styles from "./page.module.css";
+import { FaCalendar, FaCarCrash, FaGift, FaUniversalAccess } from "react-icons/fa";
+import DatePicker from "react-datepicker";
 
 function Ingresso() {
     const atracoes = [
@@ -72,7 +74,46 @@ function Ingresso() {
             ]
         }
     ];
+
     const [atracaoSelecionada, setAtracaoSelecionada] = useState(null);
+    const [showModalPacote, setShowModalPacote] = useState(false);
+    const [showModalData, setShowModalData] = useState(false);
+    const [dataSelecionada, setDataSelecionada] = useState(null);
+    const [showModalFinalizado, setShowModalFinalizado] = useState(false);
+
+    function abrirModalPacote(item) {
+        setAtracaoSelecionada(item);
+        setShowModalPacote(true);
+        setDataSelecionada(null);
+    }
+
+    function fecharModalPacote() {
+        setShowModalPacote(false);
+    }
+
+    function irParaEscolherData() {
+        setShowModalPacote(false);
+        setShowModalData(true);
+    }
+
+    function abrirModalData() {
+        setShowModalPacote(false);
+        setShowModalData(true);
+    }
+
+    function fecharModalData() {
+        setShowModalData(false);
+        setDataSelecionada(null);
+    }
+    function abrirModalFinalizado() {
+        setShowModalFinalizado(true);
+        setShowModalData(false);
+    }
+
+    function fecharModalFinalizado() {
+        setShowModalFinalizado(false);
+        setShowModalData(false);
+    }
 
     return (
         <div className={styles.container}>
@@ -87,7 +128,6 @@ function Ingresso() {
                     </p>
                 </div>
 
-                {/* Atrações */}
                 <section className={styles.atracoes}>
                     {atracoes.map((item, i) => (
                         <div className={styles.atracao} key={i}>
@@ -96,61 +136,132 @@ function Ingresso() {
                                 src={item.imagem}
                                 alt={item.titulo}
                                 style={{ cursor: "pointer" }}
-                                data-bs-toggle="modal"
-                                data-bs-target="#ExemploModalCentralizado"
-                                onClick={() => setAtracaoSelecionada(item)}
+                                onClick={() => abrirModalPacote(item)}
                             />
                         </div>
                     ))}
                 </section>
 
-                {/* Modal */}
-                <div
-                    className="modal fade"
-                    id="ExemploModalCentralizado"
-                    tabIndex="-1"
-                    aria-labelledby="TituloModalCentralizado"
-                    aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className={`modal-content ${styles.modalContent}`}>
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="TituloModalCentralizado">
-                                    {atracaoSelecionada?.titulo}
-                                </h5>
-                                <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Fechar"
-                                ></button>
-                            </div>
-                            <div className="modal-body">
-                                {atracaoSelecionada && (
-                                    <>
-                                        <div className={`container ${styles.modalContainer}`}>
-                                            <img
-                                            
-                                                src={atracaoSelecionada.imagem}
-                                                alt={atracaoSelecionada.titulo}
-                                                width={100}
-                                                height={100}
-                                               
-                                            />
-                                            <p>{atracaoSelecionada.descricao}</p>
-                                            <h6>Inclui:</h6>
-                                            <ul>
-                                                {atracaoSelecionada.inclui.map((item, i) => (
-                                                    <li key={i}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                    </>
-                                )}
-                            </div>
+                {/* Modal Pacote */}
+                <Modal
+                    show={showModalPacote}
+                    onHide={fecharModalPacote}
+                    centered
+                    size="lg"
+                    contentClassName={styles.modalContent}
+                    dialogClassName={styles.modalDialogGrande}
+                    className={styles.modalContainer}
+                >
+                    <Modal.Header closeButton className={styles.modalHeader}>
+                        <div className={styles.tituloAlin}>
+                            <FaGift className={styles.icon} />
+                            <Modal.Title className={styles.modalTitle}>PACOTE</Modal.Title>
                         </div>
-                    </div>
-                </div>
+                    </Modal.Header>
+                    <Modal.Body className={`container ${styles.modalContainer}`}>
+                        {atracaoSelecionada && (
+                            <>
+                                <div>
+                                    <img
+                                        src={atracaoSelecionada.imagem}
+                                        alt={atracaoSelecionada.titulo}
+                                        className={styles.imgAtracao}
+                                    />
+                                </div>
+                                <div className={styles.descricaoCard}>
+                                    <h2 className={styles.tituloCard}>{atracaoSelecionada.titulo}</h2>
+                                    <p>{atracaoSelecionada.descricao}</p>
+                                    <h6>Inclui:</h6>
+                                    <ul className={styles.item}>
+                                        {atracaoSelecionada.inclui.map((item, i) => (
+                                            <li key={i}>{item}</li>
+                                        ))}
+                                    </ul>
+                                    <Button variant="secondary" className={styles.btnCard} onClick={irParaEscolherData}>
+                                        Escolher Data
+                                    </Button>
+                                </div>
+                            </>
+                        )}
+                    </Modal.Body>
+                </Modal>
+
+                {/* Modal Selecionar Data */}
+                <Modal
+                    show={showModalData}
+                    onHide={fecharModalData}
+                    centered
+                    size="lg"
+                    contentClassName={styles.modalDataContent}
+                    dialogClassName={styles.modalDataDialog}
+                    className={styles.modalContainer}>
+
+                    <Modal.Header closeButton className={styles.modalDataHeader}>
+                        <div className={styles.modalDataTituloAlinhado}>
+                            <FaCalendar className={styles.modalDataIcon} />
+                            <Modal.Title className={styles.modalDataTitle}>SELECIONAR DATA E CONFIRMAR</Modal.Title>
+                        </div>
+                    </Modal.Header>
+                    <Modal.Body className={`container ${styles.modalDataContainer}`}>
+                        <DatePicker
+                            selected={dataSelecionada}
+                            onChange={(date) => setDataSelecionada(date)}
+                            dateFormat="dd/MM/yyyy"
+                            inline
+                            className={styles.calendarioDataCustom}
+                        />
+
+                        {dataSelecionada && (
+                            <div className={styles.modalDataInfo}>
+                                <h3 className={styles.tituloCarddata}>{atracaoSelecionada.titulo}</h3>
+                                <ul className={styles.itemData}>
+                                    {atracaoSelecionada.inclui.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                    ))}
+                                </ul>
+                                <p className={`mt-2 text-center ${styles.dataCentro}`}>
+                                    <strong>Data selecionada:</strong> {dataSelecionada.toLocaleDateString()}
+                                </p>
+                                <Button variant="secondary" className={styles.btnCard} onClick={abrirModalFinalizado}>
+                                    Finalizar
+                                </Button>
+                            </div>
+                        )}
+                    </Modal.Body>
+                </Modal>
+                <Modal
+                    show={showModalFinalizado}
+                    onHide={fecharModalFinalizado}
+                    centered
+                    contentClassName={styles.modalFinalizadoContent}
+                    dialogClassName={styles.modalFinalizadoDialog}
+                    className={styles.modalContainer}
+                >
+
+                    <Modal.Body className={`text-center ${styles.modalFinalizadoBody}`}>
+
+                        <h5 className={styles.modalFinalizadoTexto}>
+                        
+                            <img
+                                src="/iconSuccess.png"
+                                alt="Ícone de sucesso"
+                                width={30}
+                                height={30}
+                                className="mb-2"
+                            />
+                            <br />
+                            Compra finalizada com sucesso!
+                        </h5>
+
+                    </Modal.Body>
+                    <Modal.Footer className={styles.modalFinalizadoFooter}>
+                        <Button variant="primary" className={styles.btnCard} onClick={fecharModalFinalizado}>
+                            Fechar
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
+
 
             </div>
         </div>
