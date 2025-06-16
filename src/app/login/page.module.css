@@ -9,9 +9,9 @@ body{
 .containerGeral{
     display: flex;
     flex-direction: row;
-    margin-top: 8rem;
+    margin-top: 5rem;
     min-height: 490px;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 }
 /* PARA O LOGIN */
 /* Trecho para criar conta */
@@ -26,6 +26,9 @@ body{
 }
 .containerTexto{
     margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .containerTexto h1{
     font-size: 3.2rem;
@@ -39,10 +42,11 @@ body{
 }
 .containerBtnCriarConta{
     margin: 7rem;
+    display: flex;
+    justify-content: center;
 }
 .containerBtnCriarConta button{
     border: 0.3rem solid #2d2f55;
-    /* padding: 7px 35px; */
     border-radius: 25px;
     background-color: transparent;
     cursor: pointer;
@@ -67,6 +71,8 @@ body{
 }
 .containerTitulo{
     margin-top: 4rem;
+    display: flex;
+    justify-content: center;
 }
 .containerTitulo h1{
     font-size: 3.2rem;
@@ -239,6 +245,9 @@ body{
 }
 .containerTextoTrecho{
     margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .containerTextoTrecho h1{
     font-size: 2.8rem;
@@ -253,6 +262,8 @@ body{
 }
 .containerBtnEntrarTrecho{
     margin: 7rem;
+    display: flex;
+    justify-content: center;
 }
 .containerBtnEntrarTrecho button{
     border: 0.3rem solid #FFF8F8;
@@ -279,6 +290,8 @@ body{
 }
 .containerTituloPrincipal{
     margin-top: 4rem;
+    display: flex;
+    justify-content: center;
 }
 .containerTituloPrincipal h1{
     font-size: 3.2rem;

@@ -1,105 +1,82 @@
 :root {
-    /* Referencia para fonte utilizada */
-    --font-primary: "Poppins";
 
-    /* Paleta de cores */
-    /* Roxo escuro - base da identidade */
-    --color-primary: #2D336B;
-    /* Versão mais clara - hover, destaques */
-    --color-primary-light: #A9B5DF;
-    /* Destaques secundários, badges e ações importantes */
-    --color-secondary: #7886C7;
+  --font-primary: "Poppins";
 
-    /* Cor de fundo */
-    --color-background: #FFF8F8;
-    /* Fundo para elementos de cartão e containers */
-    --color-surface: #ffffff;
+  --color-primary: #2D336B;
+  --color-primary-light: #A9B5DF;
+  --color-secondary: #7886C7;
 
-    /* Tipografia */
-    /* Texto padrão escuro */
-    --color-text: #212121;
-    /* Texto secundário e legendas */
-    --color-text-muted: #757575;
-    /* Texto claro para fundos escuros como o primário */
-    --color-text-inverse: #FFFFFF;
+  --color-background: #FFF8F8;
+  --color-surface: #ffffff;
 
-    /* Bordas e detalhes */
-    /* Bordas sutis */
-    --color-border: #E0E0E0;
-    /* Sombras leves */
-    --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-text: #212121;
+  --color-text-muted: #757575;
+  --color-text-inverse: #FFFFFF;
 
-    /* Transições */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
+  --color-border: #E0E0E0;
+  --color-shadow: rgba(0, 0, 0, 0.15);
 
-    --padding: 1rem;
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
 
-    /* Controla a síntese de fontes (negrito, itálico) pelo navegador */
-    font-synthesis: none;
-    /* Otimiza a renderização do texto para melhor legibilidade */
-    text-rendering: optimizeLegibility;
-    /* Melhora a renderização de fontes em navegadores baseados em WebKit (Chrome, Safari) */
-    -webkit-font-smoothing: antialiased;
-    /* Melhora a renderização de fontes em navegadores Firefox no macOS */
-    -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-    /* Adiciona um efeito de rolagem suave quando links internos são clicados */
-    scroll-behavior: smooth;
-    /* Define o tamanho da fonte base como 10px (para facilitar o uso de rem) */
-    font-size: 62.5%;
-    /* Garante que o elemento html não seja maior que a largura da viewport */
-    max-width: 100vw;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
-    /* Define a fonte primária usando uma variável CSS */
-    font-family: var(--font-primary);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-size: 1.6rem;
+  font-family: var(--font-primary), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 1.6rem;
 
-    /* Garante uma largura mínima de 320px para evitar layouts quebrados em telas pequenas */
-    min-width: 32rem;
-    min-height: 100vh;
+  min-width: 32rem;
+  min-height: 100vh;
+  margin: 0;
+  width: 100vw;
 
-    /* Adiciona um preenchimento ao redor do conteúdo do body usando uma variável CSS */
-    padding: var(--padding);
+  overflow-x: hidden;
+  overflow-y: scroll;
 
-    /* Força a exibição da barra de rolagem vertical, evitando o deslocamento de elementos quando o conteúdo se torna longo o suficiente para precisar da barra */
-    overflow-y: scroll;
-
-    max-width: 144rem;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
+  max-width: unset;
 }
 
 * {
-    /* Altera o modelo de caixa para incluir padding e border na largura e altura de um elemento */
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex: 1;
 }
 
 h1 {
-    color: var(--color-primary);
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
 }
 
 .textoAlternativo {
-    color: #757575;
-    text-align: justify;
-    line-height: 3rem;
+  color: var(--color-text-muted);
+  text-align: justify;
+  line-height: 3rem;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; 
-  height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
