@@ -84,9 +84,9 @@ export default function Hospedagem() {
         <div className={styles.headerContainer}>
           <img src="/logo_afterlife.png" alt="Logo After Life" className={styles.logo} />
           <nav className={styles.navbarNav}>
-            <a href="#" className={styles.navLink}>Home</a>
-            <a href="#" className={styles.navLink}>Sobre</a>
-            <a href="#" className={`${styles.navLink} ${styles.active}`}>Hospedagem</a>
+            <a href="#" className={styles.navLink}>HOME</a>
+            <a href="#" className={styles.navLink}>SOBRE</a>
+            <a href="#" className={`${styles.navLink} ${styles.active}`}>HOSPEDAGEM</a>
           </nav>
           <div className={styles.headerIcons}>
             <i className={`${styles.icon} ${styles.cartIcon}`} onClick={openCartModal}></i>
@@ -142,12 +142,6 @@ export default function Hospedagem() {
         </div>
       </main>
 
-      <footer>
-        <div className={styles.footer}>
-          <p>After Life Parque @ 2025 – Todos os direitos reservados</p>
-          <p>Be always happy :)</p>
-        </div>
-      </footer>
 
       {/* Modal do Carrinho */}
       {isCartModalOpen && (
