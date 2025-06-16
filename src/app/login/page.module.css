@@ -11,6 +11,7 @@ body{
     flex-direction: row;
     margin-top: 8rem;
     min-height: 490px;
+    margin-bottom: 8rem;
 }
 /* PARA O LOGIN */
 /* Trecho para criar conta */

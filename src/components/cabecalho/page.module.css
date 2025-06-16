@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2f3061;
+  padding: 0 20px;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  background-color: #f7ecd9;
+  padding: 10px;
+}
+
+.logo :global(img) {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.mainNav a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.mainNav a:hover {
+  opacity: 0.7;
+}
+
+.actionItems {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  background-color: #848ccf;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.loginBtn:hover {
+  opacity: 0.9;
+}
+
+.icon {
+  margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .mainNav {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .actionItems {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 10px 0;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px auto;
+    padding: 6px;
+  }
+  .mainNav {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .mainNav a {
+    font-size: 1.1rem;
+    padding: 4px 0;
+  }
+  .actionItems {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .loginBtn {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  .cart {
+    font-size: 18px;
+  }
+}
